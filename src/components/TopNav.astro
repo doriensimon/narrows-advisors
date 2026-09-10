@@ -1,0 +1,113 @@
+---
+import { Icon } from 'astro-icon/components';
+import { NAV_ITEMS } from '../data/site';
+
+interface Props {
+  active: string;
+}
+const { active } = Astro.props;
+---
+
+<nav class="topnav desktop-only" aria-label="Primary">
+  <a href="/" class="wordmark">
+    <span class="mark">NARROWS</span>
+    <span class="sub">ADVISORS</span>
+  </a>
+  <ul class="tabs">
+    {NAV_ITEMS.map((item) => {
+      const isExternal = item.href.startsWith('http');
+      return (
+        <li>
+          <a
+            href={item.href}
+            target={isExternal ? '_blank' : undefined}
+            rel={isExternal ? 'noopener' : undefined}
+            class:list={['tab', { active: item.label === active }]}
+          >
+            {item.label}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+  <div class="search">
+    <Icon name="lucide:search" width={14} height={14} />
+    <span>Search</span>
+  </div>
+</nav>
+
+<style>
+  .topnav {
+    display: flex;
+    align-items: center;
+    height: 38px;
+    background: var(--pacific-slate);
+    padding: 0 20px;
+    gap: 32px;
+  }
+
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    flex: 0 0 auto;
+  }
+  .wordmark:hover {
+    color: inherit;
+  }
+  .mark {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: var(--tracking-mark);
+    color: var(--fog-white);
+  }
+  .sub {
+    font-family: var(--font-display);
+    font-size: 14px;
+    letter-spacing: var(--tracking-sub);
+    color: var(--fog-white);
+    opacity: 0.5;
+  }
+
+  .tabs {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 4px;
+    flex: 1 1 auto;
+  }
+
+  .tab {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 14px;
+    font-size: 13.5px;
+    color: var(--fog-a60);
+    border-bottom: 2px solid transparent;
+  }
+  .tab:hover {
+    color: var(--fog-white);
+  }
+  .tab.active {
+    color: var(--fog-white);
+    border-bottom-color: var(--ember);
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+    background: rgba(245, 244, 241, 0.08);
+    color: var(--fog-a60);
+    border: 1px solid rgba(245, 244, 241, 0.14);
+    border-radius: var(--radius-sm);
+    padding: 5px 10px;
+    font-size: 12.5px;
+  }
+</style>

@@ -1,0 +1,65 @@
+---
+import PanelCard from './PanelCard.astro';
+import { IN_NETWORK_LOGOS, IN_NETWORK_INTRO, IN_NETWORK_OUTRO } from '../data/site';
+---
+
+<PanelCard title="In Network" padded class="in-network">
+  <p class="intro">{IN_NETWORK_INTRO}</p>
+  <div class="logos">
+    {IN_NETWORK_LOGOS.map((logo) => (
+      <span class="logo-item">
+        <img src={`/logos/${logo.file}`} alt={logo.alt} style={{ height: `${logo.height}px` }} />
+        {logo.wordmark && <span class="wordmark">{logo.wordmark}</span>}
+      </span>
+    ))}
+  </div>
+  <p class="outro">{IN_NETWORK_OUTRO}</p>
+</PanelCard>
+
+<style>
+  .intro {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--text-muted);
+    max-width: 600px;
+  }
+
+  .logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 28px;
+    margin-top: 18px;
+  }
+
+  .logo-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .logo-item img {
+    width: auto;
+    object-fit: contain;
+  }
+  .wordmark {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-heading);
+  }
+
+  .outro {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin-top: 16px;
+  }
+
+  @media (max-width: 860px) {
+    .logos {
+      gap: 18px;
+    }
+    .logo-item img {
+      transform: scale(0.85);
+      transform-origin: left center;
+    }
+  }
+</style>

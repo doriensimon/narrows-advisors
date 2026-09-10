@@ -1,0 +1,39 @@
+---
+import PanelCard from './PanelCard.astro';
+import { HOME_VITALS } from '../data/site';
+---
+
+<PanelCard title="Vitals" class="vitals">
+  {HOME_VITALS.map((row) => (
+    <div class="row">
+      <div class="value">{row.value}</div>
+      <div class="label">{row.label}</div>
+    </div>
+  ))}
+</PanelCard>
+
+<style>
+  .row {
+    padding: 18px 22px;
+    border-bottom: var(--border-inner);
+    flex: 1 1 auto;
+  }
+  .row:last-child {
+    border-bottom: none;
+  }
+  .value {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ember);
+    line-height: 1;
+  }
+  .label {
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+</style>

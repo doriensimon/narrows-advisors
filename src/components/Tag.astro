@@ -1,0 +1,64 @@
+---
+interface Props {
+  tooltip?: string;
+  class?: string;
+}
+const { tooltip, class: className } = Astro.props;
+---
+
+{tooltip ? (
+  <span class:list={['tag-wrap', className]}>
+    <span class="tag"><slot /></span>
+    <span class="tooltip" role="tooltip">{tooltip}</span>
+  </span>
+) : (
+  <span class:list={['tag', className]}><slot /></span>
+)}
+
+<style>
+  .tag-wrap {
+    position: relative;
+    display: inline-block;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--text-heading);
+    background: var(--surface-card);
+    border: var(--border-hairline);
+    border-radius: var(--radius-sm);
+    padding: 2px 8px;
+    line-height: 1.6;
+  }
+
+  .tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    white-space: nowrap;
+    background: var(--pacific-slate);
+    color: var(--text-on-inverse);
+    font-family: var(--font-body);
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-popover);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4px);
+    transition: var(--transition-base);
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .tag-wrap:hover .tooltip,
+  .tag-wrap:focus-within .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+</style>

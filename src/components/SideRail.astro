@@ -1,0 +1,81 @@
+---
+import { Icon } from 'astro-icon/components';
+import { RAIL_ITEMS } from '../data/site';
+
+interface Props {
+  active: string;
+}
+const { active } = Astro.props;
+---
+
+<nav class="rail desktop-only" aria-label="Section">
+  {RAIL_ITEMS.map((item) => {
+    const isActive = item.id === active;
+    if (item.disabled) {
+      return (
+        <span class="rail-item disabled" aria-disabled="true">
+          <Icon name={item.icon} width={20} height={20} />
+          <span class="label">{item.label}</span>
+        </span>
+      );
+    }
+    const isExternal = item.href?.startsWith('http');
+    return (
+      <a
+        href={item.href}
+        target={isExternal ? '_blank' : undefined}
+        rel={isExternal ? 'noopener' : undefined}
+        class:list={['rail-item', { active: isActive }]}
+      >
+        <Icon name={item.icon} width={20} height={20} />
+        <span class="label">{item.label}</span>
+      </a>
+    );
+  })}
+</nav>
+
+<style>
+  .rail {
+    width: 58px;
+    flex: 0 0 58px;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border-right: var(--border-hairline);
+  }
+
+  .rail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 4px;
+    color: var(--text-muted);
+    border-left: 3px solid transparent;
+  }
+
+  .rail-item:hover:not(.disabled) {
+    color: var(--pacific-slate);
+    background: var(--bridge-stone);
+  }
+
+  .rail-item.active {
+    color: var(--pacific-slate);
+    background: var(--bridge-stone);
+    border-left-color: var(--ember);
+  }
+
+  .rail-item.disabled {
+    opacity: 0.45;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .label {
+    font-size: 8.5px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    line-height: 1.2;
+  }
+</style>

@@ -1,0 +1,85 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  tone?: 'default' | 'stone';
+  padded?: boolean;
+  action?: 'chevron-right';
+  actionId?: string;
+  class?: string;
+}
+const { title, tone = 'default', padded = false, action, actionId, class: className } = Astro.props;
+---
+
+<div class:list={['panel', className]}>
+  <div class:list={['panel-header', { stone: tone === 'stone' }]}>
+    <span class="panel-title">{title}</span>
+    {action === 'chevron-right' && (
+      <button type="button" class="panel-action" id={actionId} aria-label={`Advance ${title}`}>
+        <Icon name="lucide:chevron-right" width={16} height={16} />
+      </button>
+    )}
+  </div>
+  <div class:list={['panel-body', { padded }]}>
+    <slot />
+  </div>
+</div>
+
+<style>
+  .panel {
+    background: var(--surface-card);
+    border: var(--border-hairline);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--pacific-slate);
+    color: var(--fog-white);
+    padding: 10px 16px;
+    flex: 0 0 auto;
+  }
+  .panel-header.stone {
+    background: var(--surface-sunken);
+    color: var(--text-heading);
+  }
+
+  .panel-title {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+  }
+
+  .panel-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 2px;
+    opacity: 0.85;
+  }
+  .panel-action:hover {
+    opacity: 1;
+  }
+
+  .panel-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .panel-body.padded {
+    padding: 22px 20px;
+  }
+</style>

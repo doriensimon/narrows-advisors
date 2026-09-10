@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import PlanOfCare from '../components/PlanOfCare.astro';
+import Vitals from '../components/Vitals.astro';
+import PracticeAreasPipeline from '../components/PracticeAreasPipeline.astro';
+import InNetworkLogos from '../components/InNetworkLogos.astro';
+import { HOME_HERO, BOOKING_URL } from '../data/site';
+---
+
+<BaseLayout
+  title="Narrows Advisors — Fractional AI RCM Strategy"
+  description="Fractional RCM AI strategy for practices and AI vendors selling into revenue cycle."
+  activeNav="Home"
+  activeRail="home"
+  mobileTitle="Narrows Advisors"
+  mobileSubline="5 sections"
+  mobileLeading="menu"
+>
+  <div class="home">
+    <section class="hero">
+      <div class="eyebrow">{HOME_HERO.eyebrow}</div>
+      <h1>{HOME_HERO.headline}</h1>
+      <p class="body-copy">{HOME_HERO.body}</p>
+      <div class="actions">
+        <Button href={BOOKING_URL} variant="accent">Schedule a call</Button>
+        <Button href="#practice-areas" variant="ghost">Learn more</Button>
+      </div>
+    </section>
+
+    <div class="row-2col">
+      <PlanOfCare />
+      <Vitals />
+    </div>
+
+    <div class="row-full" id="practice-areas">
+      <PracticeAreasPipeline />
+    </div>
+
+    <div class="row-full">
+      <InNetworkLogos />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .home {
+    background: var(--neutral-100);
+    padding: 28px 24px;
+  }
+
+  .hero {
+    padding-bottom: 32px;
+  }
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--ember);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text-heading);
+    max-width: 780px;
+    margin-top: 16px;
+  }
+  .body-copy {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 680px;
+    margin-top: 16px;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .row-2col {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .row-full {
+    margin-top: 12px;
+  }
+
+  @media (max-width: 860px) {
+    .home {
+      padding: 16px;
+    }
+    .hero {
+      padding-bottom: 0;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    .body-copy {
+      font-size: 14px;
+    }
+    .row-2col {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+  }
+</style>

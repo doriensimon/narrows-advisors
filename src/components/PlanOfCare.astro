@@ -1,0 +1,162 @@
+---
+import PanelCard from './PanelCard.astro';
+import Button from './Button.astro';
+import EmberRule from './EmberRule.astro';
+import { HOME_STAGE_ITEMS, HOME_STAGE_COPY, BOOKING_URL } from '../data/site';
+
+const defaultStage = HOME_STAGE_ITEMS[0];
+---
+
+<PanelCard title="Plan of Care" action="chevron-right" actionId="plan-of-care-next" class="plan-of-care">
+  <div class="tabs desktop-only" role="tablist">
+    {HOME_STAGE_ITEMS.map((stage, i) => (
+      <button
+        type="button"
+        class:list={['tab', { active: i === 0 }]}
+        data-stage={stage}
+        role="tab"
+        aria-selected={i === 0 ? 'true' : 'false'}
+      >
+        {stage}
+      </button>
+    ))}
+  </div>
+  <div class="tabs-grid mobile-only">
+    {HOME_STAGE_ITEMS.map((stage, i) => (
+      <button
+        type="button"
+        class:list={['grid-tab', { active: i === 0 }]}
+        data-stage={stage}
+        role="tab"
+        aria-selected={i === 0 ? 'true' : 'false'}
+      >
+        {stage}
+      </button>
+    ))}
+  </div>
+  <div class="stage-body">
+    <h3 class="stage-title" id="plan-of-care-title">{defaultStage}</h3>
+    <p class="stage-copy" id="plan-of-care-copy">{HOME_STAGE_COPY[defaultStage]}</p>
+    <EmberRule class="desktop-only" style="margin-top: 20px" />
+  </div>
+  <div class="cta">
+    <Button href={BOOKING_URL} size="sm">Schedule a call</Button>
+  </div>
+</PanelCard>
+
+<style>
+  .tabs {
+    display: flex;
+    border-bottom: var(--border-inner);
+  }
+  .tab {
+    flex: 1 1 auto;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 14px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    cursor: pointer;
+    text-align: left;
+  }
+  .tab.active {
+    color: var(--ember);
+    border-bottom-color: var(--ember);
+    font-weight: 600;
+  }
+
+  .tabs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-tab {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 8px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .grid-tab.active {
+    color: var(--ember);
+    border-bottom-color: var(--ember);
+    font-weight: 600;
+  }
+
+  .stage-body {
+    padding: 24px 22px;
+  }
+  .stage-title {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-heading);
+  }
+  .stage-copy {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--text-muted);
+    max-width: 460px;
+    margin-top: 10px;
+  }
+
+  .cta {
+    padding: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 860px) {
+    .stage-body {
+      padding: 16px;
+      border-top: var(--border-inner);
+    }
+    .stage-title {
+      font-size: 14px;
+    }
+    .stage-copy {
+      font-size: 12.5px;
+      max-width: none;
+    }
+  }
+</style>
+
+<script is:inline define:vars={{ items: HOME_STAGE_ITEMS, copy: HOME_STAGE_COPY }}>
+  const root = document.querySelector('.plan-of-care');
+  if (root) {
+    const tabs = root.querySelectorAll('[data-stage]');
+    const titleEl = root.querySelector('#plan-of-care-title');
+    const copyEl = root.querySelector('#plan-of-care-copy');
+    const nextBtn = root.querySelector('#plan-of-care-next');
+
+    const setStage = (stage) => {
+      tabs.forEach((tab) => {
+        const isActive = tab.dataset.stage === stage;
+        tab.classList.toggle('active', isActive);
+        tab.setAttribute('aria-selected', String(isActive));
+      });
+      if (titleEl) titleEl.textContent = stage;
+      if (copyEl) copyEl.textContent = copy[stage];
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => setStage(tab.dataset.stage));
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      const current = titleEl?.textContent ?? items[0];
+      const idx = items.indexOf(current);
+      const next = items[(idx + 1) % items.length];
+      setStage(next);
+    });
+  }
+</script>

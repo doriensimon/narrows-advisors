@@ -1,0 +1,125 @@
+---
+import PanelCard from './PanelCard.astro';
+import type { IssueGroup } from '../data/site';
+
+interface Props {
+  groups: IssueGroup[];
+}
+const { groups } = Astro.props;
+---
+
+<PanelCard title="Active Problems" class="issue-groups">
+  {groups.map((group) => (
+    <div>
+      <div class="group-header">
+        <span class="group-label">{group.label}</span>
+        <span class="group-count">{group.count}</span>
+      </div>
+      {group.items.map((item) =>
+        item.detail ? (
+          <details class="issue-row">
+            <summary>
+              <span class="icon" aria-hidden="true"></span>
+              <span class="text">{item.text}</span>
+            </summary>
+            <p class="detail">{item.detail}</p>
+          </details>
+        ) : (
+          <div class="issue-row plain">
+            <span class="icon-spacer" aria-hidden="true"></span>
+            <span class="text">{item.text}</span>
+          </div>
+        )
+      )}
+    </div>
+  ))}
+</PanelCard>
+
+<style>
+  .group-header {
+    padding: 8px 16px;
+    background: var(--surface-sunken);
+    border-bottom: var(--border-hairline);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .group-label {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--pacific-slate);
+  }
+  .group-count {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  details.issue-row {
+    border-bottom: var(--border-inner);
+  }
+  div.issue-row.plain {
+    border-bottom: var(--border-inner);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 16px;
+  }
+
+  summary {
+    list-style: none;
+    padding: 11px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .icon,
+  .icon-spacer {
+    width: 14px;
+    flex: 0 0 14px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ember);
+  }
+  .icon::before {
+    content: '+';
+  }
+  details[open] .icon::before {
+    content: '\2013';
+  }
+
+  .text {
+    font-size: 12.5px;
+    color: var(--text-heading);
+    line-height: 1.4;
+    flex: 1 1 auto;
+  }
+
+  .detail {
+    padding: 0 16px 14px 38px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  @media (max-width: 860px) {
+    summary,
+    div.issue-row.plain {
+      padding: 10px 14px;
+    }
+    .detail {
+      padding: 0 14px 12px 36px;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+  }
+</style>

@@ -1,0 +1,36 @@
+:root{
+  /* Base palette — the five brand colors, verbatim from the brand board */
+  --pacific-slate:#1C2B3A;
+  --ember:#C0392B;
+  --fog-white:#F5F4F1;
+  --bridge-stone:#E8E4DC;
+  --near-black:#181818;
+  --white:#FFFFFF;
+
+  /* Derived slate ramp (tints/shades of Pacific Slate, for hover + depth only) */
+  --slate-900:#101A24;
+  --slate-800:#152230;
+  --slate-700:#1C2B3A;
+  --slate-600:#2A3D4F;
+  --slate-500:#3D5266;
+
+  /* Derived ember ramp */
+  --ember-700:#96291E;
+  --ember-600:#A82F23;
+  --ember-500:#C0392B;
+  --ember-100:#F3DCD8;
+
+  /* Neutral ramp used for rules, muted labels, hairlines */
+  --neutral-900:#181818;
+  --neutral-700:#555555;
+  --neutral-500:#888888;
+  --neutral-400:#AAAAAA;
+  --neutral-300:#E0DDD8;
+  --neutral-200:#EDEAE5;
+  --neutral-100:#F5F4F1;
+
+  /* Alpha utilities */
+  --slate-a30:rgba(28,43,58,0.30);
+  --fog-a60:rgba(245,244,241,0.60);
+  --fog-a50:rgba(245,244,241,0.50);
+}

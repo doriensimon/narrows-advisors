@@ -1,0 +1,45 @@
+:root{
+  /* Surfaces */
+  --surface-page:var(--fog-white);
+  --surface-card:var(--white);
+  --surface-sunken:var(--bridge-stone);
+  --surface-inverse:var(--pacific-slate);
+  --surface-inverse-deep:var(--near-black);
+
+  /* Text */
+  --text-body:var(--near-black);
+  --text-heading:var(--pacific-slate);
+  --text-muted:var(--neutral-500);
+  --text-faint:var(--neutral-400);
+  --text-accent:var(--ember);
+  --text-on-inverse:var(--fog-white);
+  --text-on-inverse-muted:var(--fog-a60);
+
+  /* Lines */
+  --border-card:var(--neutral-300);
+  --border-subtle:var(--neutral-200);
+  --rule-accent:var(--ember);
+
+  /* Actions */
+  --action-primary-bg:var(--pacific-slate);
+  --action-primary-fg:var(--fog-white);
+  --action-primary-bg-hover:var(--slate-600);
+  --action-accent-bg:var(--ember);
+  --action-accent-fg:var(--white);
+  --action-accent-bg-hover:var(--ember-600);
+  --action-ghost-fg:var(--pacific-slate);
+  --action-ghost-border:var(--pacific-slate);
+  --action-ghost-bg-hover:var(--bridge-stone);
+  --action-disabled-bg:var(--neutral-300);
+  --action-disabled-fg:var(--neutral-500);
+
+  /* Focus */
+  --focus-ring:2px solid var(--ember);
+  --focus-offset:2px;
+
+  /* Fields */
+  --field-bg:var(--white);
+  --field-border:var(--neutral-300);
+  --field-border-focus:var(--pacific-slate);
+  --field-placeholder:var(--neutral-400);
+}

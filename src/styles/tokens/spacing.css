@@ -1,0 +1,41 @@
+:root{
+  --space-2:2px;
+  --space-4:4px;
+  --space-8:8px;
+  --space-12:12px;
+  --space-16:16px;
+  --space-18:18px;
+  --space-20:20px;
+  --space-24:24px;
+  --space-28:28px;
+  --space-32:32px;
+  --space-36:36px;
+  --space-40:40px;
+  --space-48:48px;
+  --space-64:64px;
+  --space-96:96px;
+
+  /* The brand board's own rhythm: 12px between stacked cards, 28px above a
+     new section label, 40–48px of card padding. */
+  --gap-card:12px;
+  --gap-section:28px;
+  --pad-card:28px;
+  --pad-card-lg:40px;
+
+  /* Radii — deliberately tight. Nothing in this brand is pill-shaped. */
+  --radius-sm:2px;   /* buttons, tags */
+  --radius-md:4px;   /* cards, panels, swatch blocks */
+  --radius-none:0;
+
+  /* Borders */
+  --border-hairline:1px solid var(--neutral-300);
+  --border-inner:1px solid var(--neutral-200);
+  --accent-bar-width:3px;
+  --ember-rule-width:32px;
+  --ember-rule-height:2px;
+
+  /* Layout */
+  --measure-board:860px;
+  --measure-copy:520px;
+  --measure-headline:480px;
+}

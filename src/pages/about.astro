@@ -1,0 +1,94 @@
+---
+import RecordLayout from '../layouts/RecordLayout.astro';
+import PanelCard from '../components/PanelCard.astro';
+import Button from '../components/Button.astro';
+import EmberRule from '../components/EmberRule.astro';
+import EncounterHistory from '../components/EncounterHistory.astro';
+import { ABOUT_PERSONA, ABOUT_BACKGROUND, BOOKING_URL } from '../data/site';
+
+const persona = ABOUT_PERSONA;
+const metaFields = [
+  { label: 'PCP', value: persona.pcp },
+  { label: 'Next', value: persona.next },
+  { label: 'Provider', value: persona.provider },
+  { label: 'Primary', value: persona.primary },
+];
+---
+
+<RecordLayout
+  title="About — Narrows Advisors"
+  description="Dorien Simon, founder of Narrows Advisors — background and experience."
+  activeNav="About"
+  activeRail="about"
+  mobileTitle="About"
+  persona={persona}
+  metaFields={metaFields}
+  columns="narrow-right"
+>
+  <Fragment slot="left">
+    <PanelCard title="Background" padded class="background">
+      <h2>{ABOUT_BACKGROUND.headline}</h2>
+      <p class="subhead">{ABOUT_BACKGROUND.subhead}</p>
+      {ABOUT_BACKGROUND.paragraphs.map((paragraph) => (
+        <p class="paragraph">{paragraph}</p>
+      ))}
+      <EmberRule style="margin-top: 24px" />
+      <div class="cta">
+        <Button href={BOOKING_URL}>Schedule a call</Button>
+      </div>
+    </PanelCard>
+  </Fragment>
+  <Fragment slot="right">
+    <EncounterHistory />
+  </Fragment>
+</RecordLayout>
+
+<style>
+  :global(.background) h2 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--text-heading);
+    line-height: 1.25;
+    max-width: 560px;
+  }
+  .subhead {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--pacific-slate);
+    max-width: 560px;
+    margin-top: 10px;
+  }
+  .paragraph {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin-top: 14px;
+  }
+  .cta {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 860px) {
+    :global(.background) h2 {
+      font-size: 16px;
+      line-height: 1.3;
+      max-width: none;
+    }
+    .subhead {
+      font-size: 13px;
+      max-width: none;
+      margin-top: 8px;
+    }
+    .paragraph {
+      font-size: 13px;
+      max-width: none;
+      margin-top: 12px;
+    }
+  }
+</style>

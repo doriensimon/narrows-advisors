@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+import TopNav from '../components/TopNav.astro';
+import SideRail from '../components/SideRail.astro';
+import MobileTopBar from '../components/MobileTopBar.astro';
+import MobileNavMenu from '../components/MobileNavMenu.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  activeNav: string;
+  activeRail: string;
+  mobileTitle: string;
+  mobileSubline?: string;
+  mobileLeading?: 'menu' | 'back';
+}
+
+const {
+  title,
+  description,
+  activeNav,
+  activeRail,
+  mobileTitle,
+  mobileSubline,
+  mobileLeading = 'back',
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/brand/mark-slate.svg" type="image/svg+xml" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <MobileTopBar leading={mobileLeading} title={mobileTitle} subline={mobileSubline} />
+    <MobileNavMenu active={activeRail} />
+    <div class="page-shell">
+      <TopNav active={activeNav} />
+      <div class="content-row">
+        <SideRail active={activeRail} />
+        <main class="page-main">
+          <slot />
+        </main>
+      </div>
+    </div>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .content-row {
+    display: flex;
+    align-items: stretch;
+    flex: 1 1 auto;
+  }
+  .page-main {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+</style>

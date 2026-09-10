@@ -1,0 +1,81 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PersonBanner from '../components/PersonBanner.astro';
+import MetaStrip from '../components/MetaStrip.astro';
+
+interface Persona {
+  firstName: string;
+  lastName: string;
+  initials: string;
+  recordId: string;
+  role: string;
+  recordNumber: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  activeNav: string;
+  activeRail: string;
+  mobileTitle: string;
+  persona: Persona;
+  metaFields: { label: string; value: string }[];
+  /** 'narrow-left' = 340px/1fr (Practices, Vendors); 'narrow-right' = 1fr/340px (About) */
+  columns?: 'narrow-left' | 'narrow-right';
+}
+
+const {
+  title,
+  description,
+  activeNav,
+  activeRail,
+  mobileTitle,
+  persona,
+  metaFields,
+  columns = 'narrow-left',
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  activeNav={activeNav}
+  activeRail={activeRail}
+  mobileTitle={mobileTitle}
+  mobileSubline="Narrows Advisors"
+  mobileLeading="back"
+>
+  <PersonBanner {...persona} />
+  <MetaStrip fields={metaFields} />
+  <div class:list={['body', columns]}>
+    <div class="col-a">
+      <slot name="left" />
+    </div>
+    <div class="col-b">
+      <slot name="right" />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .body {
+    background: var(--surface-page);
+    padding: 28px 24px;
+    display: grid;
+    gap: 12px;
+    align-items: start;
+  }
+  .body.narrow-left {
+    grid-template-columns: 340px 1fr;
+  }
+  .body.narrow-right {
+    grid-template-columns: 1fr 340px;
+  }
+
+  @media (max-width: 860px) {
+    .body {
+      padding: 14px;
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
