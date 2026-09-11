@@ -2,24 +2,16 @@
 import { Icon } from 'astro-icon/components';
 
 interface Props {
-  leading?: 'menu' | 'back';
   title: string;
   subline?: string;
-  backHref?: string;
 }
-const { leading = 'menu', title, subline, backHref = '/' } = Astro.props;
+const { title, subline } = Astro.props;
 ---
 
 <div class="mobile-topbar mobile-only">
-  {leading === 'menu' ? (
-    <button type="button" class="leading" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-nav-menu" aria-label="Open navigation">
-      <Icon name="lucide:menu" width={20} height={20} />
-    </button>
-  ) : (
-    <a href={backHref} class="leading" aria-label="Back">
-      <Icon name="lucide:chevron-left" width={20} height={20} />
-    </a>
-  )}
+  <button type="button" class="leading" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-nav-menu" aria-label="Open navigation">
+    <Icon name="lucide:menu" width={20} height={20} />
+  </button>
   <div class="titles">
     <span class="title">{title}</span>
     {subline && <span class="subline">{subline}</span>}

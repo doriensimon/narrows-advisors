@@ -13,7 +13,6 @@ interface Props {
   activeRail: string;
   mobileTitle: string;
   mobileSubline?: string;
-  mobileLeading?: 'menu' | 'back';
 }
 
 const {
@@ -23,7 +22,6 @@ const {
   activeRail,
   mobileTitle,
   mobileSubline,
-  mobileLeading = 'back',
 } = Astro.props;
 ---
 
@@ -36,7 +34,7 @@ const {
     <meta name="description" content={description} />
   </head>
   <body>
-    <MobileTopBar leading={mobileLeading} title={mobileTitle} subline={mobileSubline} />
+    <MobileTopBar title={mobileTitle} subline={mobileSubline} />
     <MobileNavMenu active={activeRail} />
     <div class="page-shell">
       <TopNav active={activeNav} />

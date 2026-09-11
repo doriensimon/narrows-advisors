@@ -31,8 +31,8 @@ export const RAIL_ITEMS: RailItem[] = [
 
 export const MOBILE_NAV_ROWS = [
   { id: 'home', label: 'Home', icon: 'lucide:layout-grid', meta: 'Overview & key metrics', href: '/' },
-  { id: 'practices', label: 'For Practices', icon: 'lucide:stethoscope', meta: 'Billing & operations audits', href: '/practices/' },
-  { id: 'vendors', label: 'For AI Companies', icon: 'lucide:cpu', meta: 'Selling into revenue cycle', href: '/vendors/' },
+  { id: 'practices', label: 'Practices', icon: 'lucide:stethoscope', meta: 'Billing & operations audits', href: '/practices/' },
+  { id: 'vendors', label: 'Vendors', icon: 'lucide:cpu', meta: 'Selling into revenue cycle', href: '/vendors/' },
   { id: 'about', label: 'About', icon: 'lucide:user', meta: 'Background & experience', href: '/about/' },
   { id: 'contact', label: 'Contact', icon: 'lucide:mail', meta: 'Book time directly', href: BOOKING_URL },
 ] as const;
@@ -140,9 +140,9 @@ export const PRACTICE_ISSUE_GROUPS: IssueGroup[] = [
     label: 'Chronic',
     count: 4,
     items: [
-      { text: 'Vendor Fatigue', detail: "Every vendor pitch sounds the same and promises the same results — it's hard to know who to trust or what will actually work for your practice." },
+      { text: 'Vendor Fatigue', detail: "Every vendor pitch sounds the same and promises the same results. It's hard to know who to trust or what will actually work for your practice." },
       { text: 'Unprepared Systems and Staff', detail: "You want AI, but aren't sure how to get your processes and people into a state that lets automation take on real volume and deliver the revenue return it's promising, instead of getting kicked back to your team." },
-      { text: 'No Clear Starting Point', detail: "You know practices are using AI in revenue cycle to scale faster, improve collections, process more claims without more hires, and cut labor costs — but you don't know where to start, or what would actually move the needle for your practice." },
+      { text: 'No Clear Starting Point', detail: "You know practices are using AI in revenue cycle to scale faster, improve collections, process more claims without more hires, and cut labor costs, but you don't know where to start, or what would actually move the needle for your practice." },
       { text: 'Unclear Savings Math', detail: "Vendor cost estimates are a black box, and vendors are incentivized to close the deal fast, not give you an accurate number for your stack, payer mix, staffing, and workflows. Without understanding the tech, you can't judge how much automation potential your billing team actually has." },
     ],
   },
@@ -151,7 +151,7 @@ export const PRACTICE_ISSUE_GROUPS: IssueGroup[] = [
     count: 2,
     items: [
       { text: 'No ROI Attribution', detail: "You're running AI in your RCM but can't attribute the ROI to it. Scope often shrinks at deployment, and the vendor's dashboard tells one story while your accounting tells another. The labor savings aren't there because there was no AI strategy going into the deal." },
-      { text: 'Failed AI Deployment', detail: "You've tried AI or a vendor before, but it didn't live up to what was promised at signing — and you ultimately tore it out, eroding internal trust and leaving you skeptical of AI's value in RCM." },
+      { text: 'Failed AI Deployment', detail: "You've tried AI or a vendor before, but it didn't live up to what was promised at signing and you ultimately tore it out, eroding internal trust and leaving you skeptical of AI's value in RCM." },
     ],
   },
 ];
