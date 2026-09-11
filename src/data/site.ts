@@ -141,7 +141,7 @@ export const PRACTICE_ISSUE_GROUPS: IssueGroup[] = [
     count: 4,
     items: [
       { text: 'Vendor Fatigue', detail: "Every vendor pitch sounds the same and promises the same results — it's hard to know who to trust or what will actually work for your practice." },
-      { text: 'Unprepared systems and staff', detail: "You want AI, but aren't sure how to get your processes and people into a state that lets automation take on real volume and deliver the revenue return it's promising, instead of getting kicked back to your team." },
+      { text: 'Unprepared Systems and Staff', detail: "You want AI, but aren't sure how to get your processes and people into a state that lets automation take on real volume and deliver the revenue return it's promising, instead of getting kicked back to your team." },
       { text: 'No Clear Starting Point', detail: "You know practices are using AI in revenue cycle to scale faster, improve collections, process more claims without more hires, and cut labor costs — but you don't know where to start, or what would actually move the needle for your practice." },
       { text: 'Unclear Savings Math', detail: "Vendor cost estimates are a black box, and vendors are incentivized to close the deal fast, not give you an accurate number for your stack, payer mix, staffing, and workflows. Without understanding the tech, you can't judge how much automation potential your billing team actually has." },
     ],
