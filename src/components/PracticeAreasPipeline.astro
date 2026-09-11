@@ -40,6 +40,13 @@ import { PRACTICE_AREAS } from '../data/site';
     text-align: center;
     line-height: 1.4;
     padding: 0 4px;
+    /* Reserve space for two lines so a step with a one-line label and a step
+       with a two-line label still put their dot at the same height — otherwise
+       the connecting line zig-zags between steps instead of running flat. */
+    min-height: 2.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .dot {
@@ -79,6 +86,8 @@ import { PRACTICE_AREAS } from '../data/site';
       order: 2;
       text-align: left;
       padding: 0;
+      min-height: 0;
+      display: block;
     }
     .dot {
       order: 1;
