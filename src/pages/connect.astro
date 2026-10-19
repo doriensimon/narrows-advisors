@@ -1,0 +1,70 @@
+---
+// PLACEHOLDER landing page for in-person events (conference QR codes point here).
+// Generic path on purpose so the same printed QR can be reused at future events.
+// TODO: replace with the real lead-capture page (short form + booking option).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PanelCard from '../components/PanelCard.astro';
+import Button from '../components/Button.astro';
+import EmberRule from '../components/EmberRule.astro';
+import { BOOKING_URL, CONTACT_EMAIL } from '../data/site';
+---
+
+<BaseLayout
+  title="Let's talk — Narrows Advisors"
+  description="Book 30 minutes with Dorien Simon to find out what automation can actually own in your revenue cycle."
+  activeNav=""
+  activeRail=""
+  mobileTitle="Let's talk"
+>
+  <div class="wrap">
+    <PanelCard title="Let's talk" padded>
+      <h1>What can automation actually own in your revenue cycle?</h1>
+      <p class="sub">It's usually not the vendor. It's the workflow underneath.</p>
+      <p class="body">
+        Thirty minutes is usually enough to tell whether there's an opportunity worth exploring.
+      </p>
+      <EmberRule style="margin-top: 24px" />
+      <div class="cta">
+        <Button href={BOOKING_URL}>Book 30 minutes</Button>
+        <Button href={`mailto:${CONTACT_EMAIL}`} variant="ghost">Email me</Button>
+      </div>
+    </PanelCard>
+  </div>
+</BaseLayout>
+
+<style>
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text-heading);
+  }
+  .sub {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--pacific-slate);
+    margin-top: 12px;
+  }
+  .body {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin-top: 14px;
+  }
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  @media (max-width: 860px) {
+    h1 { font-size: 22px; }
+  }
+</style>
