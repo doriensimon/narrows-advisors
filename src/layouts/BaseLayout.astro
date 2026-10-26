@@ -5,6 +5,7 @@ import SideRail from '../components/SideRail.astro';
 import MobileTopBar from '../components/MobileTopBar.astro';
 import MobileNavMenu from '../components/MobileNavMenu.astro';
 import Footer from '../components/Footer.astro';
+import StructuredData from '../components/StructuredData.astro';
 
 interface Props {
   title: string;
@@ -32,6 +33,7 @@ const {
     <link rel="icon" href="/brand/mark-slate.svg" type="image/svg+xml" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <StructuredData />
   </head>
   <body>
     <MobileTopBar title={mobileTitle} subline={mobileSubline} />

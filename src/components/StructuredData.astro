@@ -1,0 +1,108 @@
+---
+// Site-wide JSON-LD (Organization, WebSite, Person) for search engines and LLMs.
+const data = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://narrowsadvisors.com/#website",
+      "url": "https://narrowsadvisors.com/",
+      "name": "Narrows Advisors",
+      "publisher": {
+        "@id": "https://narrowsadvisors.com/#org"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://narrowsadvisors.com/#org",
+      "name": "Narrows Advisors",
+      "alternateName": "Narrows Advisors RCM AI Strategy",
+      "url": "https://narrowsadvisors.com/",
+      "description": "Seattle-based fractional RCM (revenue cycle management) AI strategy firm. Helps medical practices get real labor savings from AI in their revenue cycle and gives AI/RCM vendors fractional sales-engineering support.",
+      "slogan": "Fractional AI RCM Strategy",
+      "foundingDate": "2026",
+      "founder": {
+        "@id": "https://narrowsadvisors.com/#dorien"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Seattle",
+        "addressRegion": "WA",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "knowsAbout": [
+        "Revenue cycle management",
+        "AI in revenue cycle management",
+        "Denials management",
+        "Prior authorization automation",
+        "RCM vendor selection",
+        "Healthcare AI sales engineering"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/dorienksimon"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Narrows Advisors services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "RCM AI audit and strategy for practices",
+              "description": "Audit of denials, staffing and workflows to identify the biggest RCM automation opportunities and calculate realistic labor savings."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Process re-engineering for AI readiness",
+              "description": "Preparing processes and staff so automation can take real volume instead of kicking work back to the team."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "RCM AI vendor selection and procurement",
+              "description": "Selecting the vendor that can deliver the calculated savings, plus integration support, SOPs and monitoring."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Fractional sales engineering for AI/RCM vendors",
+              "description": "Technical prospect-call support, early deal disqualification, ROI narratives, pricing and integration modeling, and sales-to-delivery hand-offs."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://narrowsadvisors.com/#dorien",
+      "name": "Dorien Simon",
+      "jobTitle": "Founder and Principal",
+      "worksFor": {
+        "@id": "https://narrowsadvisors.com/#org"
+      },
+      "url": "https://narrowsadvisors.com/about/",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Stanford University"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/dorienksimon"
+      ]
+    }
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data)} />

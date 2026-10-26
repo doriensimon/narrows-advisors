@@ -1,0 +1,29 @@
+# Narrows Advisors
+
+> Narrows Advisors is a Seattle-based fractional RCM (revenue cycle management) AI strategy firm. It helps medical practices get real labor savings from AI in their revenue cycle, and helps AI/RCM vendors close and deliver deals with dedicated fractional sales-engineering support. Founded in 2026 by Dorien Simon, a former Palantir forward deployed engineer who has designed and deployed AI agents for billing workflows.
+
+## What Narrows Advisors does
+
+For practices: audit denials, staffing and workflows to find the largest RCM opportunities; re-engineer processes and prepare staff so automation can take real volume; run vendor procurement and selection; and support integration, SOPs and monitoring so AI savings show up in A/R and staff time.
+
+For AI and RCM vendors: fractional sales engineering, including technical prospect-call support, early disqualification of bad-fit deals, ROI and denial-reduction narratives, pricing and integration modeling, and written sales-to-delivery hand-offs.
+
+## Pages
+
+- [Home](https://narrowsadvisors.com/): Overview of fractional AI RCM strategy, the process, and the RCM areas covered (patient intake, VOB/COB, prior authorization, coding review, claim scrub and submission, claim statusing, payment posting, denials management).
+- [For Practices](https://narrowsadvisors.com/practices/): Problems Narrows solves for practices (vendor fatigue, unprepared systems and staff, unclear savings math, no ROI attribution, failed AI deployments) and the four-part approach: audit, process re-engineering, vendor procurement, monitoring and support.
+- [For AI Companies](https://narrowsadvisors.com/vendors/): Fractional sales-engineering support for AI/RCM vendors selling into revenue cycle.
+- [About](https://narrowsadvisors.com/about/): Background of founder Dorien Simon (Stanford computer science; Palantir; Thoughtful AI; Smarter Technologies).
+
+## Key facts
+
+- Founder: Dorien Simon
+- Location: Seattle, Washington, USA
+- Category: independent healthcare revenue cycle (RCM) AI consulting and fractional sales engineering
+- Track record stated on site: $21M+ in RCM AI deals scoped, sold and delivered; 15+ implementations delivered; 50+ vendor demos delivered
+- Systems experience: athenahealth, Epic, eClinicalWorks, NextGen, ModMed, WebPT, Waystar, Availity, Phreesia, Candid Health, Experian Health, Zelis, and others
+- Booking: https://calendar.app.google/3ZoPGad9VZhgNCCh8
+
+## Optional
+
+- [LinkedIn: Dorien Simon](https://www.linkedin.com/in/dorienksimon)
